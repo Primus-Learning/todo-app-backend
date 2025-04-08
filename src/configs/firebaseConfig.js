@@ -1,13 +1,13 @@
 import * as firebase from "firebase-admin";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB0Ag1Lh3WVEey8dHqrjxXEJhAPXENOuvk",
-  authDomain: "todo-app-309e2.firebaseapp.com",
-  projectId: "todo-app-309e2",
-  storageBucket: "todo-app-309e2.firebasestorage.app",
-  messagingSenderId: "110589561752",
-  appId: "1:110589561752:web:88fc861f7536b6f32af9ed",
-  measurementId: "G-DN1SPN73YL"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
 
 const fbApp = firebase.initializeApp(firebaseConfig);

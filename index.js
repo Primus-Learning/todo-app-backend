@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import express from "express";
+import taskRouter from "./src/routes/taskRoutes.js";
 
 dotenv.config({ path: '.env' });
 
@@ -19,6 +20,7 @@ try {
 }
 
 app.use(express.json());
+app.use("/api/todos", taskRouter)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
