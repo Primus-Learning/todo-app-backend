@@ -7,10 +7,10 @@ Retrieves all tasks for the authenticated user.
 ### POST /api/todos/tasks 
 Creates a new task. 
 Body:  
-{
+`{
 "title": "Task Title",
 "description": "Task Description"
-}
+}`
 ### PUT /api/todos/tasks/:id 
 Updates an existing task. Body:  
 {
@@ -45,3 +45,33 @@ Deletes a task by ID.
 - Access the app at http://localhost:4000. MongoDB will be available at localhost:27017.  
 - To stop the containers:
 `docker-compose down`
+
+## Deploying to Google Cloud Platform (GCP)
+### Prerequisites
+- installed Google Cloud SDK
+#### Steps
+- Authenticate with Google Cloud:  
+`gcloud auth login`
+- Set your project:  
+`gcloud config set project project_id`
+- Create an app.yaml file in the root directory:  
+### Enable App Engine:  
+```gcloud app create```
+### Deploy the app:  
+```gcloud app deploy```
+### Access the app at:  
+https://project_id.appspot.com
+## Using the To-Do List Application
+- Access the Application Open the app in your browser at the specified URL (e.g., http://localhost:3000 for local or the GCP URL for deployment).  
+- Authentication Log in using the todo-app user interface.  
+### Create a Task  
+- click to the "Create Task" button.
+- Enter the task title and description.
+- Click "Save" to save the task.
+### Update a Task  
+- Click on the edit button on the task to edit its details.
+- Update the title, description, or status.
+- Save the changes.
+### Delete a Task  
+- Click the "Delete" button next to a task to remove it.
+
