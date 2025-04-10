@@ -2,9 +2,7 @@ import mongoose from "mongoose";
 
 const task = new mongoose.Schema({
   id: {
-    type: Number,
-    unique: true,
-    autoIncrement: true
+    type: String,
   },
   userId: {
     type: String,

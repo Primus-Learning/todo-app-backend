@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import express from "express";
 import taskRouter from "./src/routes/taskRoutes.js";
+import cors from "cors";
 
 dotenv.config({ path: '.env' });
 
@@ -20,7 +21,15 @@ try {
 }
 
 app.use(express.json());
-app.use("/api/todos", taskRouter)
+const corsOptions = {
+  origin: "*", // Allow requests from this origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allowed HTTP methods
+  credentials: true, // Allow cookies if needed
+};
+
+app.use(cors(corsOptions));
+
+app.use("/api/todos", taskRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

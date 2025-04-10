@@ -1,8 +1,8 @@
 import {getAuth} from "firebase-admin/auth";
-import fbApp from "./firebaseConfig";
+import fbApp from "./firebaseConfig.js";
 
 const isAuthenticated = (req, res, next) => {
-  const token = req.headers.authorization;
+  const token = req.headers.authorization.substring(7);
   if (!token) {
     return res.status(401).json({ message: 'Unauthorized access' });
   }
@@ -18,4 +18,4 @@ const isAuthenticated = (req, res, next) => {
     });
 }
 
-export default isAuthenticated()
+export default isAuthenticated

@@ -13,7 +13,7 @@ export const createTask = async (req, res) => {
   try {
     const { title, description } = req.body;
     const task = new Task({
-      userId: req.user.uid,
+      userId : req.user.uid,
       title,
       description,
     });
